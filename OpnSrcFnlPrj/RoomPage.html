@@ -1,0 +1,51 @@
+<html>
+<head>
+	  <link href="http://code.jquery.com/ui/1.10.4/themes/ui-lightness/jquery-ui.css" rel="stylesheet">
+      <script src="http://code.jquery.com/jquery-1.10.2.js"></script>
+      <script src="http://code.jquery.com/ui/1.10.4/jquery-ui.js"></script>
+      <script type="text/javascript" src="script.js"></script>
+	  
+	  <script>
+	  $(function() {
+		$( "#arrival" ).datepicker({
+		minDate: 0,
+		maxDate: '+2m'});
+		
+	  });
+	  </script>
+	  
+	  <script>
+	  $(function() {
+		$( "#departure" ).datepicker({
+		minDate: 0,
+		maxDate: '+2m'});
+		
+	  });
+	  </script>
+<title>
+</title>
+</head>
+<body>
+
+	<form name="roompage" id ="roompage"  method="get" action="CustmerPage.html">
+		<fieldset style="width:14%">
+            <h1>Room Reservation</h1>
+            <p> <strong>Room type:</strong>
+                <input type="text" name="type" id="type" size="15" class="type"/><br /> 
+            </p>
+             <p><strong>Date of arrival:
+                     <input type="text" name="arrival" id="arrival" class="arrival"></strong></p>
+            <p><strong>Date of departure:
+                    <input type="text" name="departure" id="departure" class="departure"></strong></p>           
+	    <p> <strong>Number of People:</strong>
+             <input type="text" name="people" id="people" size="3" class="people"/><br /> 
+            </p>
+			
+			<button type="submit" value="Submit">Reservation</button>
+			<button type="reset" value="Reset">Reset</button>
+			
+        </fieldset>	
+	</form>
+
+</body>
+</html>

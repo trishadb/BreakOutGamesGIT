@@ -1,0 +1,106 @@
+body{
+    font: 1.3em 'Marmelad', sans-serif;   
+    width: 100%;
+    margin: 0 auto !important;
+    background-color:#F7F7F7;
+    padding: 25px 15px 25px 10px;
+    text-shadow: 1px 1px 1px #FFF;
+	text-align:center;
+	text-shadow: 1px 1px 1px #FFF;
+	background: url(Background02.jpg) no-repeat center center fixed;
+	-webkit-background-size: cover;
+    -moz-background-size: cover; 
+    background-size: cover;
+	
+	
+	
+}
+
+
+.navHover{
+    -webkit-transition: all 0.7s ease;
+    transition: all 0.7s ease;
+
+}
+a:link {
+    text-decoration: none;
+    color: #f9f7eb;
+}
+
+a:visited {
+    color: #f9f7eb;
+}
+.navHover:hover{
+    opacity: 0.4;
+    -webkit-transform:scale(1.2);
+    transform:scale(1.2);
+}
+#h > li > a
+{
+    color: white;
+}
+
+#h > li 
+{
+    list-style-type: none;
+    padding: 10px;
+    font-family: 'Fredericka the Great', cursive;
+    font-size: 24pt;
+    text-align: right;	
+    display: inline;
+	text-shadow: 0 0 10px rgba(255,255,255,1) , 0 0 20px rgba(255,255,255,1) , 0 0 30px rgba(255,255,255,1) , 0 0 40px #00ffff , 0 0 70px #00ffff , 0 0 80px #00ffff , 0 0 100px #00ffff ;
+
+}
+
+header{
+	text-align: center;
+}
+#c {
+	margin-left:300px;
+	float:left;
+  display: inline-block;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+  padding: 10px;
+  border: none;
+  font: normal 20px/normal "Warnes", Helvetica, sans-serif;
+  color: rgba(255,255,255,1);
+  text-decoration: normal;
+  -o-text-overflow: clip;
+  text-overflow: clip;
+  white-space: pre;
+  text-shadow: 0 0 10px rgba(255,255,255,1) , 0 0 20px rgba(255,255,255,1) , 0 0 30px rgba(255,255,255,1) , 0 0 40px #ff00de , 0 0 70px #ff00de , 0 0 80px #ff00de , 0 0 100px #ff00de ;
+  -webkit-transition: all 200ms cubic-bezier(0.42, 0, 0.58, 1);
+  -moz-transition: all 200ms cubic-bezier(0.42, 0, 0.58, 1);
+  -o-transition: all 200ms cubic-bezier(0.42, 0, 0.58, 1);
+  transition: all 200ms cubic-bezier(0.42, 0, 0.58, 1);
+}
+
+#c:hover {
+  text-shadow: 0 0 10px rgba(255,255,255,1) , 0 0 20px rgba(255,255,255,1) , 0 0 30px rgba(255,255,255,1) , 0 0 40px #00ffff , 0 0 70px #00ffff , 0 0 80px #00ffff , 0 0 100px #00ffff ;
+}
+
+#p1{
+	font-size:300%;
+	font-family: 'Fredericka the Great', cursive;
+	text-shadow: 0 0 10px rgba(255,255,255,1) , 0 0 20px rgba(255,255,255,1) , 0 0 30px rgba(255,255,255,1) , 0 0 40px #00ffff , 0 0 70px #00ffff , 0 0 80px #00ffff , 0 0 100px #00ffff ;
+}
+
+#p2{
+	font-family: 'Fredericka the Great', cursive;
+	color:white;
+	text-shadow: 0 0 10px rgba(255,255,255,1) , 0 0 20px rgba(255,255,255,1) , 0 0 30px rgba(255,255,255,1) , 0 0 40px white , 0 0 70px white , 0 0 80px white , 0 0 100px white ;
+}
+#form1{
+	font-family: 'Fredericka the Great', cursive;
+	color:white;
+	text-shadow: 0 0 10px rgba(255,255,255,1) , 0 0 20px rgba(255,255,255,1) , 0 0 30px rgba(255,255,255,1) , 0 0 40px white , 0 0 70px white , 0 0 80px white , 0 0 100px white ;
+
+}
+#form2{
+	font-family: 'Fredericka the Great', cursive;
+	color:white;
+	text-shadow: 0 0 10px rgba(255,255,255,1) , 0 0 20px rgba(255,255,255,1) , 0 0 30px rgba(255,255,255,1) , 0 0 40px white , 0 0 70px white , 0 0 80px white , 0 0 100px white ;
+
+}
