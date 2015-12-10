@@ -19,9 +19,10 @@ body{
     transition: all 0.7s ease;
 
 }
-a:link {
+a {
     text-decoration: none;
     color: #f9f7eb;
+    cursor: pointer;
 }
 
 a:visited {

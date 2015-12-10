@@ -7,17 +7,20 @@ include 'database/connect.php';
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-//**********START Create Available Rooms
+//**********START Booking Room
 if (isset($_POST['frmBook'])) {
     $spots = "";
-    $clean = preg_replace('#[^0-9]#', '', $_POST['getRoomBtns']);
+    $clean = preg_replace('#[^0-9]#', '', $_POST['room_id']);
+    $num = preg_replace('#[^0-9]#', '', $_POST['num']);
 
-    if ($clean == "") {
+    if ($clean == "" || $num == "") {
         exit();
     }
+    
+    $num = $_POST['numPeople'];
 
-    $sql = "SELECT * FROM ROOMS WHERE room_id ='$clean'";
-    $result = mysqli_query($conn, $sql) or die(mysli_error($conn));
+    $sqlSel = "SELECT * FROM ROOMS WHERE room_id ='$clean' AND available >= '$num'";
+    $result = mysqli_query($conn, $sqlSel) or die(mysli_error($conn));
 
     $check_result = mysqli_num_rows($result);
 
@@ -27,74 +30,26 @@ if (isset($_POST['frmBook'])) {
             $room_theme = $row['room_theme'];
             $avail = $row['available'];
             $price = $row['price'];
-
-            $rmBtn = "";
-
-            $spots .= $room_theme . ' now has ' . $avail . ' spots' . $price . ' per person <br/>';
-
-            for ($i = 0; $i < $avail; $i++) {
-                $ii = $i + 1;
-
-                $rmBtn .= '<button id="tbl_' . $id . '_' . $ii . '" onClick="reserveRoom(this.id)">' . $ii . '</button>';
-            }
-
-            $spots .="$rmBtn<br/>";
         }
+
+        $availNow = $avail - $num;
+
+        $sqlUpd = "UPDATE ROOM SET available = '$availNow' WHERE room_id='$id'";
+        $resultUpd = mysqli_query($conn, $sqlUpd) or die(mysli_error($conn));
+
+        $sqlIns = "INSERT INTO RESERVATION(date, room_theme, reserved_seats, user_id)(now(), '$room_theme', '$num')";
+        $resultIns = mysqli_query($conn, $sqlIns) or die(mysli_error($conn));
+
+        $reservId = mysqli_insert_id($connect);
+
+        //*****book and billing info to redirect to another page here//
     } else {
         $spots = "Full";
+        $reserveId = "open";
     }
 
-    echo $spots;
+    echo $spots | $reservId;
     exit();
-}
-//**********END Create Available Rooms
-
-
-//**********START Booking Room
-if (isset($_POST['frmBook'])) {
-   // $spots = "";
-    //$clean = preg_replace('#[^0-9]#', '', $_POST['room_id']);
-    $clean = $_POST['room_id'];
-    echo $clean;
-//   // $num = preg_replace('#[^0-9]#', '', $_POST['num']);
-//
-//    if ($clean == "" || $num == "") {
-//        exit();
-//    }
-//    
-//    $num = $_POST['numPeople'];
-//
-//    $sqlSel = "SELECT * FROM ROOMS WHERE room_id ='$clean' AND available >= '$num'";
-//    $result = mysqli_query($conn, $sqlSel) or die(mysli_error($conn));
-//
-//    $check_result = mysqli_num_rows($result);
-//
-//    if ($check_result != 0) {
-//        while ($row = mysqli_fetch_array($result)) {
-//            $id = $row['room_id'];
-//            $room_theme = $row['room_theme'];
-//            $avail = $row['available'];
-//            $price = $row['price'];
-//        }
-//
-//        $availNow = $avail = $num;
-//
-//        $sqlUpd = "UPDATE ROOM SET available = '$availNow' WHERE room_id='$id'";
-//        $resultUpd = mysqli_query($conn, $sqlUpd) or die(mysli_error($conn));
-//
-//        $sqlIns = "INSERT INTO RESERVATION(date, room_theme, reserved_seats, user_id)(now(), '$room_theme', '$num')";
-//        $resultIns = mysqli_query($conn, $sqlIns) or die(mysli_error($conn));
-//
-//        $reservId = mysqli_insert_id($connect);
-//
-//        //*****book and billing info to redirect to another page here//
-//    } else {
-//        $spots = "Full";
-//        $reserveId = "open";
-//    }
-//
-//    echo $spots | $reservId;
-//    exit();
 }
 //**********END Reserving Room
 

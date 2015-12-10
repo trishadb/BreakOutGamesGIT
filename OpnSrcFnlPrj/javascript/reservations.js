@@ -1,6 +1,6 @@
 var process = "open";
 var reserveID = "open";
-
+/**
 function showAvailable(room){
     if(process == "closed"){
         cancelReserve(reserveId);
@@ -88,6 +88,9 @@ function confirmBooking(){
     };
     
     hr.send(confirmation);
+}**/
+
+function sendReservation(roomID){
+    
+    
 }
-
-
